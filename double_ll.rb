@@ -88,6 +88,22 @@ class DoublyLinkedList
       @head = new_head
     end
   end
+
+  # this is same as append, realized after implementing it :)
+  def insert_at_tail(target)
+    tmp_head = @head
+    if tmp_head
+      while !tmp_head.next_node.nil?
+        tmp_head = tmp_head.next_node
+      end
+      new_tail = Node.new target
+      new_tail.prev_node = tmp_head
+      tmp_head.next_node = new_tail
+    else
+      new_tail = Node.new target
+      @head = new_tail
+    end
+  end
 end
 
 
