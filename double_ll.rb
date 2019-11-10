@@ -74,6 +74,20 @@ class DoublyLinkedList
       found_target.next_node.prev_node = found_target.prev_node
     end
   end
+
+  def insert_at_head(target)
+    if @head
+      new_head = Node.new(target)
+      tmp_head = @head
+      tmp_head.prev_node = new_head
+      new_head.next_node = tmp_head
+      new_head.prev_node = nil
+      @head = new_head
+    else
+      new_head = Node.new(target)
+      @head = new_head
+    end
+  end
 end
 
 
@@ -83,4 +97,7 @@ ss.append 2
 ss.append 3
 ss.append 4
 ss.append 5
+ss.print_list
+
+ss.insert_at_head 12
 ss.print_list
