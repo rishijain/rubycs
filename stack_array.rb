@@ -13,8 +13,9 @@ class Stack
 
   def pop
     return if @top == -1
+    top_data = @body[@top]
     @top -= 1
-    nil
+    top_data
   end
 
   def print_stack
