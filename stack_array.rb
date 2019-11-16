@@ -35,7 +35,7 @@ class Stack
   end
 end
 
-a = Stack.new
-a.push 1
-a.push 2
-a. push 23
+#a = Stack.new
+#a.push 1
+#a.push 2
+#a. push 23
