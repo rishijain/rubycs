@@ -14,6 +14,7 @@ class Stack
   def pop
     return if @top == -1
     top_data = @body[@top]
+    @body.delete_at @top
     @top -= 1
     top_data
   end
@@ -28,6 +29,10 @@ class Stack
         local_top -= 1
       end
     end
+  end
+
+  def top_element
+    @body[top]
   end
 
   def is_empty?
