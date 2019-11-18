@@ -15,8 +15,9 @@ end
 
 class LinkedList
   attr_accessor :head
-  def initialize
+  def iinitialize
     @head = nil
+    @tail = nil
   end
 
   def append(data)
@@ -24,12 +25,11 @@ class LinkedList
     new_node = Node.new(data, nil)
     if tmp_head.nil?
       @head = new_node
+      @tail = new_node
       tmp_head = @head
     else
-      while tmp_head.next_node
-        tmp_head = tmp_head.next_node
-      end
-      tmp_head.next_node = new_node 
+      @tail.next_node = new_node
+      @tail = new_node
     end
     new_node
   end
@@ -58,7 +58,6 @@ class Queue
       @rear = @list.head
     else
       new_node = @list.append data
-      print new_node
       @rear = new_node
     end
   end
