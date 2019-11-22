@@ -20,6 +20,11 @@ class Bst
     @root = nil
   end
 
+  def insert(data)
+    insert_node(@root, data)
+    self
+  end
+
   def insert_node(tmp_root, data)
     new_node = Node.new data
     if tmp_root.nil?
