@@ -1,5 +1,5 @@
 # insert elements in a bst
-#
+# search element in a bst
 
 class Node
   attr_accessor :left, :right, :data
@@ -8,7 +8,7 @@ class Node
   end
 
   def print_node
-    "#{@left} - #{@data} - #{@right}"
+    "#{@left&.data} - #{@data} - #{@right&.data}"
   end
 end
 
@@ -24,6 +24,17 @@ class Bst
     insert_node(@root, data)
     self
   end
+
+  def search(data)
+    res = search_internal(@root, data)
+    if res.nil?
+      print "not found"
+    else
+      print res.print_node
+    end
+  end
+
+  private
 
   def insert_node(tmp_root, data)
     new_node = Node.new data
@@ -44,6 +55,18 @@ class Bst
           insert_node(tmp_root.right, data)
         end
       end
+    end
+  end
+
+  def search_internal(tmp_root, data)
+    if tmp_root.nil?
+      return nil
+    elsif tmp_root.data == data
+      return tmp_root
+    elsif data < tmp_root.data
+      search_internal(tmp_root.left, data)
+    elsif data > tmp_root.data
+      search_internal(tmp_root.right, data)
     end
   end
 end
