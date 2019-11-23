@@ -34,6 +34,26 @@ class Bst
     end
   end
 
+  def min_element(root)
+    if root.nil?
+      print "no tree"
+    elsif root.left.nil?
+      print "min is: #{root.data}"
+    else
+      min_element(root.left)
+    end
+  end
+
+  def max_element(root)
+    if root.nil?
+      print "no tree"
+    elsif root.right.nil?
+      print "max is: #{root.data}"
+    else
+      max_element(root.right)
+    end
+  end
+
   private
 
   def insert_node(tmp_root, data)
